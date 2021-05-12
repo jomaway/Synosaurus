@@ -1,0 +1,7 @@
+data/de.jomaway.Synosaurus.desktop.in
+data/de.jomaway.Synosaurus.appdata.xml.in
+data/de.jomaway.Synosaurus.gschema.xml
+src/window.ui
+src/main.py
+src/window.py
+
