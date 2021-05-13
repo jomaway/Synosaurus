@@ -23,6 +23,7 @@ class SynosaurusWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'SynosaurusWindow'
 
     results_listbox = Gtk.Template.Child()
+    listbox_placeholder = Gtk.Template.Child()
     search_entry = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
@@ -39,8 +40,11 @@ class SynosaurusWindow(Gtk.ApplicationWindow):
     @Gtk.Template.Callback()
     def on_search_activate(self, *args):
         query_string = self.search_entry.get_text()
-        self.ctr.fetch(query_string)
-        self.search_entry.grab_focus()
+        if query_string:
+            self.ctr.fetch(query_string)
+            self.search_entry.grab_focus()
+        else:
+            print(f"WARNING: Can't query an empty string!")
 
     @Gtk.Template.Callback()
     def on_results_listbox_row_activated(self, listbox, listboxrow):
@@ -63,6 +67,9 @@ class SynosaurusWindow(Gtk.ApplicationWindow):
         # add new rows
         for entry in datastore:
             self.results_listbox.add(entry)
+
+    def change_placeholder_text(self, text):
+        self.listbox_placeholder.set_text(text)
 
 
 

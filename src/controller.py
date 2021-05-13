@@ -4,7 +4,7 @@
 
 from .api import OpenthesaurusAPI
 from .views import WordView, SeperatorView
-from gi.repository import Gtk
+from gi.repository import Gtk, Gdk
 
 class Controller:
 
@@ -17,8 +17,6 @@ class Controller:
         self.store = []  # list for ResultEntryView
         self.hist = []
 
-        self.fetch("Test")
-
     def set_win(self, win):
         self.win = win
 
@@ -27,9 +25,12 @@ class Controller:
             self.win.results_listbox.add(entry)
 
     def fetch(self, string):
+        self.hist.append(string)
         result = self.api.query(string)
 
         self.store_result(result)
+        if not self.store:
+            self.win.change_placeholder_text(f"Sorry 🙇 No data available for '{string}'.")
 
         # update result listbox in view
         self.win.update_list(self.store)
@@ -39,6 +40,7 @@ class Controller:
 
     def store_result(self, data):
         if data is None:
+            print(f"WARNING: No data available from api")
             return
         self.store.clear()
         for entry in data['synsets']:
@@ -49,6 +51,13 @@ class Controller:
                 level = term.get('level','')
                 self.store.append(WordView(word, level))
             self.store.append(SeperatorView())
+
+
+    def show_window_information(self):
+        print(f"Window size: {self.win.get_size()}")
+        print(f"Window pos: {self.win.get_position()}")
+        print(f"Window grav: {self.win.get_gravity()}")
+        print(f"Screen Height: {Gdk.Screen.height()}")
 
 
 

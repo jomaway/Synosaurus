@@ -71,6 +71,8 @@ class SeperatorView(Gtk.ListBoxRow):
         sep = Gtk.Separator()
         sep.set_margin_top(20)
         sep.set_margin_bottom(20)
+        self.set_selectable(False)
+        self.set_activatable(False)
 
         self.add(sep)
         self.show_all()
