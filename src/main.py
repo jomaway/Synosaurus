@@ -17,30 +17,30 @@
 
 import sys
 import gi
+import json
 
 gi.require_version('Gtk', '3.0')
 
 from gi.repository import Gtk, Gio
 
 from .window import SynosaurusWindow
-
-from .api import API
+from .controller import Controller
 
 class Application(Gtk.Application):
     def __init__(self):
         super().__init__(application_id='de.jomaway.Synosaurus',
                          flags=Gio.ApplicationFlags.FLAGS_NONE)
+        self.controller = None
 
     def do_activate(self):
         win = self.props.active_window
         if not win:
             win = SynosaurusWindow(application=self)
         win.present()
+        if self.controller is None:
+            self.controller = Controller(self, win)
 
 
 def main(version):
     app = Application()
-    api = API()
-    result = api.query("Hunger")
-    print(result)
     return app.run(sys.argv)

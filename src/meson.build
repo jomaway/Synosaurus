@@ -30,6 +30,8 @@ synosaurus_sources = [
   'main.py',
   'window.py',
   'api.py',
+  'views.py',
+  'controller.py',
 ]
 
 install_data(synosaurus_sources, install_dir: moduledir)

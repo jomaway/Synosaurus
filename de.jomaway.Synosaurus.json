@@ -23,17 +23,6 @@
     ],
     "modules" : [
         {
-            "name" : "synosaurus",
-            "builddir" : true,
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "file:///home/jonas/Projekte/Synosaurus"
-                }
-            ]
-        },
-        {
             "name": "pip-install",
             "buildsystem": "simple",
             "build-options": {
@@ -42,7 +31,18 @@
               ]
             },
             "build-commands": [
-                "pip3 install requests"
+                "pip3 install --prefix=${FLATPAK_DEST} requests"
+            ]
+        },
+        {
+            "name" : "synosaurus",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "file:///home/jonas/Projekte/Synosaurus"
+                }
             ]
         }
     ]
