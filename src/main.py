@@ -27,9 +27,10 @@ from .window import SynosaurusWindow
 from .controller import Controller
 
 class Application(Gtk.Application):
-    def __init__(self):
+    def __init__(self, v):
         super().__init__(application_id='de.jomaway.Synosaurus',
                          flags=Gio.ApplicationFlags.FLAGS_NONE)
+        self.version = v
         self.controller = None
 
     def do_activate(self):
@@ -40,7 +41,7 @@ class Application(Gtk.Application):
         if self.controller is None:
             self.controller = Controller(self, win)
 
-
 def main(version):
-    app = Application()
+    print(f"Running version: {version}")
+    app = Application(version)
     return app.run(sys.argv)

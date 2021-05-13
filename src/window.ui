@@ -47,6 +47,9 @@
                   <object class="GtkLabel" id="result_label">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
+                    <property name="margin-start">10</property>
+                    <property name="margin-end">10</property>
+                    <property name="margin-top">10</property>
                     <property name="label" translatable="yes">Results</property>
                     <attributes>
                       <attribute name="style" value="normal"/>
@@ -67,13 +70,13 @@
                     <property name="margin-end">20</property>
                     <property name="margin-top">10</property>
                     <property name="margin-bottom">10</property>
-                    <property name="vexpand">True</property>
                     <signal name="row-activated" handler="on_results_listbox_row_activated" swapped="no"/>
                     <child type="placeholder">
                       <object class="GtkLabel" id="listbox_placeholder">
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="label" translatable="yes">Use the search field to look for a synonym!</property>
+                        <property name="wrap">True</property>
                       </object>
                     </child>
                   </object>
@@ -81,6 +84,26 @@
                     <property name="expand">True</property>
                     <property name="fill">True</property>
                     <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="source_label">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="margin-start">20</property>
+                    <property name="margin-end">20</property>
+                    <property name="margin-top">10</property>
+                    <property name="margin-bottom">10</property>
+                    <property name="label" translatable="yes">Source: &lt;a href="https://openthesaurus.de"&gt;Openthesaurus&lt;/a&gt;</property>
+                    <property name="use_markup">True</property>
+                    <attributes>
+                      <attribute name="weight" value="ultralight"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
               </object>

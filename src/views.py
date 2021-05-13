@@ -6,30 +6,6 @@
 from gi.repository import Gtk
 
 
-class ResultEntryView(Gtk.ListBoxRow):
-
-    def __init__(self, text):
-        super().__init__()
-
-        self.hbox = Gtk.HBox()
-
-        self.title_label = Gtk.Label()
-        #self.title_label.set_ellipsize(Pango.EllipsizeMode.END)
-
-        self.count_label = Gtk.Label()
-        self.count_label.get_style_context().add_class('group-count')
-
-        self.hbox.pack_start(self.title_label, True, True, 0)
-        self.hbox.pack_end(self.count_label, False, False, 0)
-        self.add(self.hbox)
-
-        self.update(text)
-
-        self.show_all()
-
-    def update(self, text):
-        self.title_label.set_text(text)
-
 class WordView(Gtk.ListBoxRow):
 
     def __init__(self, word, info=None):

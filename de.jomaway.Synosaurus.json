@@ -10,6 +10,8 @@
         "--socket=fallback-x11",
         "--socket=wayland"
     ],
+    "x-run-args" : [
+    ],
     "cleanup" : [
         "/include",
         "/lib/pkgconfig",
