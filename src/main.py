@@ -33,6 +33,14 @@ class Application(Gtk.Application):
         self.version = v
         self.controller = None
 
+        action = Gio.SimpleAction.new("about", None)
+        action.connect("activate", self.on_about)
+        self.add_action(action)
+
+        action = Gio.SimpleAction.new("options", None)
+        action.connect("activate", self.on_options)
+        self.add_action(action)
+
     def do_activate(self):
         win = self.props.active_window
         if not win:
@@ -40,6 +48,17 @@ class Application(Gtk.Application):
         win.present()
         if self.controller is None:
             self.controller = Controller(self, win)
+
+    def on_about(self, action, param):
+        about_dialog = Gtk.AboutDialog(transient_for=self.controller.win, modal=True)
+        about_dialog.set_authors(["Jonas Malassa"])
+        about_dialog.set_version(self.version)
+        about_dialog.set_copyright("© Jonas Malassa")
+        about_dialog.set_website("https://github.com/jomaway/Synosaurus")
+        about_dialog.present()
+
+    def on_options(self, action, param):
+        self.controller.on_change_options(action, param)
 
 def main(version):
     print(f"Running version: {version}")

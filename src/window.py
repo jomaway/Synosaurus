@@ -26,6 +26,10 @@ class SynosaurusWindow(Gtk.ApplicationWindow):
     listbox_placeholder = Gtk.Template.Child()
     search_entry = Gtk.Template.Child()
 
+    switch_supersets = Gtk.Template.Child()
+    switch_subsets = Gtk.Template.Child()
+    switch_startswith = Gtk.Template.Child()
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -71,6 +75,26 @@ class SynosaurusWindow(Gtk.ApplicationWindow):
     def change_placeholder_text(self, text):
         self.listbox_placeholder.set_text(text)
 
+    def get_options(self):
+        options = {
+            "similar"     : False,
+            "substring"   : False,
+            "startswith"  : self.switch_startswith.get_active(),
+            "supersynsets": self.switch_supersets.get_active(),
+            "subsynsets"  : self.switch_subsets.get_active(),
+            "baseform"    : False
+        }
+        return options
+
+    def set_options(self, options):
+        for key, value in options.items():
+            if value:
+                if key == "startswith":
+                    self.switch_startswith.set_active()
+                elif key == "supersynsets":
+                    self.switch_supersynsets.set_active()
+                elif key == "subsynsets":
+                    self.switch_subsynsets.set_active()
 
 
 

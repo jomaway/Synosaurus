@@ -5,21 +5,189 @@
   <object class="GtkPopover" id="mainmenu_popover">
     <property name="can-focus">False</property>
     <child>
-      <object class="GtkBox">
+      <object class="GtkBox" id="vBox">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="margin-start">10</property>
+        <property name="margin-end">10</property>
+        <property name="margin-top">10</property>
+        <property name="margin-bottom">10</property>
         <property name="orientation">vertical</property>
+        <property name="spacing">6</property>
         <child>
-          <object class="GtkModelButton">
+          <object class="GtkLabel">
             <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="text" translatable="yes">Settings</property>
+            <property name="can-focus">False</property>
+            <property name="margin-start">20</property>
+            <property name="margin-end">20</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
+            <property name="label" translatable="yes">Options</property>
+            <attributes>
+              <attribute name="weight" value="semibold"/>
+            </attributes>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">10</property>
+                <property name="margin-top">4</property>
+                <property name="margin-bottom">4</property>
+                <property name="label" translatable="yes">Supersets</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_supersets">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="action-name">app.options</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="pack-type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">10</property>
+                <property name="margin-top">4</property>
+                <property name="margin-bottom">4</property>
+                <property name="label" translatable="yes">Subsets</property>
+                <property name="justify">right</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_subsets">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="action-name">app.options</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="pack-type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">10</property>
+                <property name="margin-top">4</property>
+                <property name="margin-bottom">4</property>
+                <property name="label" translatable="yes">Startswith</property>
+                <property name="justify">right</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="padding">1</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_startswith">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="action-name">app.options</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="pack-type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-start">4</property>
+            <property name="margin-end">4</property>
+            <property name="margin-top">4</property>
+            <property name="margin-bottom">4</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkModelButton" id="about_btn">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
+            <property name="action-name">app.about</property>
+            <property name="text" translatable="yes">About</property>
+            <property name="centered">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">5</property>
           </packing>
         </child>
       </object>
@@ -44,13 +212,37 @@
                 <property name="can-focus">False</property>
                 <property name="orientation">vertical</property>
                 <child>
+                  <object class="GtkSearchBar" id="search_bar">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="search-mode-enabled">True</property>
+                    <child>
+                      <object class="GtkSearchEntry" id="search_entry">
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="primary-icon-name">edit-find-symbolic</property>
+                        <property name="primary-icon-activatable">False</property>
+                        <property name="primary-icon-sensitive">False</property>
+                        <signal name="activate" handler="on_search_activate" swapped="no"/>
+                        <accelerator key="f" signal="grab-focus" modifiers="GDK_CONTROL_MASK"/>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
                   <object class="GtkLabel" id="result_label">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="margin-start">10</property>
                     <property name="margin-end">10</property>
                     <property name="margin-top">10</property>
-                    <property name="label" translatable="yes">Results</property>
+                    <property name="label" translatable="yes">Ergebnisse</property>
+                    <property name="use-underline">True</property>
                     <attributes>
                       <attribute name="style" value="normal"/>
                       <attribute name="weight" value="semibold"/>
@@ -59,7 +251,7 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">0</property>
+                    <property name="position">1</property>
                   </packing>
                 </child>
                 <child>
@@ -83,7 +275,7 @@
                   <packing>
                     <property name="expand">True</property>
                     <property name="fill">True</property>
-                    <property name="position">1</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
                 <child>
@@ -94,8 +286,9 @@
                     <property name="margin-end">20</property>
                     <property name="margin-top">10</property>
                     <property name="margin-bottom">10</property>
-                    <property name="label" translatable="yes">Source: &lt;a href="https://openthesaurus.de"&gt;Openthesaurus&lt;/a&gt;</property>
-                    <property name="use_markup">True</property>
+                    <property name="label" translatable="yes">Quelle: &lt;a href="https://openthesaurus.de"&gt;Openthesaurus&lt;/a&gt;</property>
+                    <property name="use-markup">True</property>
+                    <property name="wrap">True</property>
                     <attributes>
                       <attribute name="weight" value="ultralight"/>
                     </attributes>
@@ -103,7 +296,7 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">2</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
               </object>
@@ -119,14 +312,7 @@
         <property name="title">Synosaurus</property>
         <property name="show-close-button">True</property>
         <child>
-          <object class="GtkSearchEntry" id="search_entry">
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="primary-icon-name">edit-find-symbolic</property>
-            <property name="primary-icon-activatable">False</property>
-            <property name="primary-icon-sensitive">False</property>
-            <signal name="activate" handler="on_search_activate" swapped="no"/>
-          </object>
+          <placeholder/>
         </child>
         <child>
           <object class="GtkMenuButton" id="open_menu_button">
@@ -151,4 +337,5 @@
       </object>
     </child>
   </template>
+  <object class="GtkToggleAction" id="toggleaction1"/>
 </interface>

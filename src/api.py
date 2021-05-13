@@ -17,7 +17,7 @@ class OpenthesaurusAPI:
             "substring": False,
             "startswith":False,
             "supersynsets":False,
-            "supersynsets":False,
+            "subsynsets":False,
             "baseform":False
         }
 

@@ -4,7 +4,7 @@
 
 from .api import OpenthesaurusAPI
 from .views import WordView, SeperatorView
-from gi.repository import Gtk, Gdk
+from gi.repository import Gtk, Gdk, Gio
 
 class Controller:
 
@@ -51,6 +51,10 @@ class Controller:
                 level = term.get('level','')
                 self.store.append(WordView(word, level))
             self.store.append(SeperatorView())
+
+
+    def on_change_options(self, action, param):
+        self.api.options = self.win.get_options()
 
 
     def show_window_information(self):
